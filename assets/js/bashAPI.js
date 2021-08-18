@@ -18,7 +18,7 @@ $.ajaxPrefilter(function(options) {
         // console.log('执行了complete回调');
         // console.log(res);
         //在complete回调函数中，可以使用res.responseJSON拿到服务器响应回来的数据
-        if (res.responseJSON.code === 1) {
+        if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
             //强制清空token
             localStorage.removeItem('token')
                 //强制跳转登录页
